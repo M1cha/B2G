@@ -1,7 +1,7 @@
 #!/bin/bash
 
 . setup.sh &&
-time nice -n19 make $MAKE_FLAGS $@
+time nice -n19 make $MAKE_FLAGS $@ 2>&1 | tee make.log
 
 ret=$?
 echo -ne \\a
