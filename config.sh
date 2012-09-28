@@ -95,10 +95,10 @@ case "$1" in
     (cd device/qcom/otoro && ./extract-files.sh)
     ;;
 
-"otoro")
-	echo DEVICE=otoro >> .tmp-config &&
+"otoro"|"unagi")
+	echo DEVICE=$1 >> .tmp-config &&
 	repo_sync otoro &&
-	(cd device/qcom/otoro && ./extract-files.sh)
+	(cd device/qcom/$1 && ./extract-files.sh)
 	;;
 
 "pandaboard")
@@ -129,6 +129,7 @@ case "$1" in
 	echo - nexus-s
 	echo - nexus-s-4g
 	echo - otoro
+	echo - unagi
 	echo - pandaboard
 	echo - emulator
 	echo - emulator-x86
